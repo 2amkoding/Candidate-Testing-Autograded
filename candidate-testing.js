@@ -6,12 +6,13 @@ const input = require('readline-sync');
 let candidateName = "";
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
 let question = `Who was the first American woman in space? `;
-let correctAnswer = `Sally Ride`;
+let correctAnswer = "Sally Ride";
 let candidateAnswer = "";
 
 
 //TODO: Variables for Part 2
 let questions;
+
 let correctAnswers;
 let candidateAnswers;
 
@@ -32,9 +33,9 @@ function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
 if (candidateAnswer.toLowerCase() === correctAnswer.toLowerCase()){
-  console.log(`You are correct!`);
+  console.log(`You Are Correct!`);
 } else {
-  console.log(`You are incorrect!`)
+  console.log(`You Are Incorrect!`)
 }
 
 
