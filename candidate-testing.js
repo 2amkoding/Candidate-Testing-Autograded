@@ -3,7 +3,7 @@ const input = require('readline-sync');
 // TODO 2: modify your quiz app to ask 5 questions //
 
 // TODO 1.1a: Define candidateName // 
-let candidateName = "";
+let candidateName = '';
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
 let question = `Who was the first American woman in space? `;
 let correctAnswer = "Sally Ride";
@@ -28,7 +28,6 @@ let candidateAnswers = [];
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
 let candidateName = input.question(`Enter your name: `)
-  
 }
 
 function askQuestion() {
@@ -36,7 +35,6 @@ function askQuestion() {
 
 for (let i = 0; i < questions.length; i++) {
   candidateAnswers[i] = input.question(questions[i]);
-
 }
 }
 function gradeQuiz(candidateAnswers) {
@@ -46,16 +44,20 @@ let numberOfCorrectAnswers = 0;
 let numberOfQuestions = questions.length;
 
   for (i =0; i<correctAnswers.length; i++) {
-  if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
+    if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
     numberOfCorrectAnswers+=1;
-    console.log(`Correct! You answered: ${candidateAnswers[i]}`);
+    console.log(`Correct! You answered: ${candidateAnswers[i].toLowerCase()}`);
 } else {
-  console.log(`Incorrect! You answered: ${candidateAnswers[i]}. Correct answer is: ${correctAnswers[i]}.`)
-}
+  console.log(`Incorrect! You answered: ${candidateAnswers[i].toLowerCase()}. Correct answer is: ${correctAnswers[i]}`)
+  }
 }
 
   let grade = (numberOfCorrectAnswers / numberOfQuestions)*100;  //TODO 3.2 use this variable to calculate the candidates score.
-
+    if(grade >= 80) {
+      console.log(`${candidateName}! You passed with ${grade}%!`)
+    } else {
+      console.log(`${candidateName}! You scored: ${grade}%. Must score +80% to pass.`)
+    }
 
   return grade;
 }
