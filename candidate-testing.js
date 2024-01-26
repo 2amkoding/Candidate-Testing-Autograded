@@ -33,24 +33,28 @@ let candidateName = input.question(`Enter your name: `)
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-//let candidateAnswer = input.question(question)
+
 for (let i = 0; i < questions.length; i++) {
-  candidateAnswer = input.question(questions[i]);
-candidateAnswers.push(candidateAnswer.toLowerCase())
+  candidateAnswers[i] = input.question(questions[i]);
+
 }
 }
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-for (i =0; i<correctAnswers.length; i++) {
-  if (candidateAnswers[i] === correctAnswers[i].toLowerCase()){
-  console.log(`Correct! You answered: ${candidateAnswers[i]}`);
+let numberOfCorrectAnswers = 0;
+let numberOfQuestions = questions.length;
+
+  for (i =0; i<correctAnswers.length; i++) {
+  if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
+    numberOfCorrectAnswers+=1;
+    console.log(`Correct! You answered: ${candidateAnswers[i]}`);
 } else {
   console.log(`Incorrect! You answered: ${candidateAnswers[i]}. Correct answer is: ${correctAnswers[i]}.`)
 }
 }
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+  let grade = (numberOfCorrectAnswers / numberOfQuestions)*100;  //TODO 3.2 use this variable to calculate the candidates score.
 
 
   return grade;
